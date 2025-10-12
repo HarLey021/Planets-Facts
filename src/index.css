@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+@theme {
+  --color-dark: #070724;
+  --bg-stars: url("/background-stars.svg");
+
+  --font-antonio: "Antonio", sans serif;
+  --font-spartan: "League Spartan", sans serif;
+}
