@@ -1,5 +1,6 @@
 import { useState } from "react";
 import data from "../data/data.json";
+import navBarData from "../data/navBarData.json";
 import { useParams } from "react-router-dom";
 
 const Planet: React.FC = () => {
@@ -9,6 +10,10 @@ const Planet: React.FC = () => {
 
   const { name } = useParams<{ name: string }>();
   const planet: planetInterface | undefined = data.find(
+    (planet) => planet.name.toLowerCase() === name?.toLowerCase()
+  );
+
+  const color: colorInterface | undefined = navBarData.find(
     (planet) => planet.name.toLowerCase() === name?.toLowerCase()
   );
 
@@ -30,7 +35,10 @@ const Planet: React.FC = () => {
                 OVERVIEW
               </button>
               {activeTab === "overview" && (
-                <div className="w-[80px] h-[4px] bg-[#419EBB] mt-auto"></div>
+                <div
+                  className="w-[80px] h-[4px] bg-[#419EBB] mt-auto"
+                  style={{ backgroundColor: color?.color }}
+                ></div>
               )}
             </div>
 
@@ -44,7 +52,10 @@ const Planet: React.FC = () => {
                 STRUCTURE
               </button>
               {activeTab === "structure" && (
-                <div className="w-[80px] h-[4px] bg-[#419EBB] mt-auto"></div>
+                <div
+                  className="w-[80px] h-[4px] bg-[#419EBB] mt-auto"
+                  style={{ backgroundColor: color?.color }}
+                ></div>
               )}
             </div>
 
@@ -58,7 +69,10 @@ const Planet: React.FC = () => {
                 SURFACE
               </button>
               {activeTab === "surface" && (
-                <div className="w-[80px] h-[4px] bg-[#419EBB] mt-auto"></div>
+                <div
+                  className="w-[80px] h-[4px] bg-[#419EBB] mt-auto"
+                  style={{ backgroundColor: color?.color }}
+                ></div>
               )}
             </div>
           </div>
@@ -66,8 +80,35 @@ const Planet: React.FC = () => {
         </div>
 
         <div className="w-full px-[24px]">
-          <div className="w-full h-[304px] flex items-center justify-center">
-            <img src={planet?.images.planet} className="w-[150px] h-[150px]" />
+          <div className="w-full h-[304px] flex items-center justify-center relative">
+            {activeTab === "overview" && (
+              <img
+                className="w-[150px] h-[150px]"
+                src={planet?.images.planet}
+                alt="planet"
+              />
+            )}
+            {activeTab === "structure" && (
+              <img
+                className="w-[150px] h-[150px]"
+                src={planet?.images.internal}
+                alt="internal structure"
+              />
+            )}
+            {activeTab === "surface" && (
+              <>
+                <img
+                  className="w-[150px] h-[150px]"
+                  src={planet?.images.planet}
+                  alt="planet"
+                />
+                <img
+                  className="w-[70px] h-[70px] absolute top-[190px] left-[130px]"
+                  src={planet?.images.geology}
+                  alt="geology"
+                />
+              </>
+            )}
           </div>
           <h1 className="text-[40px] text-white font-antonio font-normal uppercase justify-self-center mb-[16px]">
             {planet?.name}

@@ -22,3 +22,8 @@ interface planetInterface {
     geology: string;
   };
 }
+
+interface colorInterface {
+  name: string;
+  color: string;
+}
