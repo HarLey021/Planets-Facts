@@ -1,22 +1,66 @@
+import { useState } from "react";
 import data from "../data/data.json";
 import { useParams } from "react-router-dom";
 
 const Planet: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<
+    "overview" | "structure" | "surface"
+  >("overview");
+
   const { name } = useParams<{ name: string }>();
-  const planet = data.find(
+  const planet: planetInterface | undefined = data.find(
     (planet) => planet.name.toLowerCase() === name?.toLowerCase()
   );
 
-  console.log(planet);
-
   return (
     <>
-      <div key={planet?.name} className="bg-dark bg-[image:var(--bg-stars)]">
-        <div className="w-full  text-white text-[9px] font-spartan tracking-[2px] font-bold  opacity-50 ">
-          <div className="flex justify-between px-[24px] py-[20px]">
-            <h2>OVERVIEW</h2>
-            <h2>STRUCTURE</h2>
-            <h2>SURFACE </h2>
+      <div
+        key={planet?.name}
+        className="w-full min-h-screen bg-dark bg-[image:var(--bg-stars)] pb-[50px]"
+      >
+        <div className="w-full  text-white text-[9px] font-spartan tracking-[2px] font-bold">
+          <div className="flex justify-between px-[24px] pt-[20px]">
+            <div className="h-[30px] flex flex-col">
+              <button
+                onClick={() => setActiveTab("overview")}
+                className={`${
+                  activeTab === "overview" ? "opacity-100" : "opacity-50"
+                }`}
+              >
+                OVERVIEW
+              </button>
+              {activeTab === "overview" && (
+                <div className="w-[80px] h-[4px] bg-[#419EBB] mt-auto"></div>
+              )}
+            </div>
+
+            <div className="h-[30px] flex flex-col">
+              <button
+                onClick={() => setActiveTab("structure")}
+                className={`${
+                  activeTab === "structure" ? "opacity-100" : "opacity-50"
+                }`}
+              >
+                STRUCTURE
+              </button>
+              {activeTab === "structure" && (
+                <div className="w-[80px] h-[4px] bg-[#419EBB] mt-auto"></div>
+              )}
+            </div>
+
+            <div className="h-[30px] flex flex-col">
+              <button
+                onClick={() => setActiveTab("surface")}
+                className={`${
+                  activeTab === "surface" ? "opacity-100" : "opacity-50"
+                }`}
+              >
+                SURFACE
+              </button>
+              {activeTab === "surface" && (
+                <div className="w-[80px] h-[4px] bg-[#419EBB] mt-auto"></div>
+              )}
+            </div>
           </div>
           <div className="w-full h-[1px] bg-white opacity-20 "></div>
         </div>
@@ -29,7 +73,9 @@ const Planet: React.FC = () => {
             {planet?.name}
           </h1>
           <p className="max-w-[400px] text-white text-[11px] font-spartan font-normal text-center leading-loose opacity-80 mb-[32px] justify-self-center">
-            {planet?.overview.content}
+            {activeTab === "overview" && planet?.overview.content}
+            {activeTab === "structure" && planet?.structure.content}
+            {activeTab === "surface" && planet?.geology.content}
           </p>
 
           <div className="text-white text-[12px] font-spartan font-normal justify-self-center opacity-50 flex items-center mb-[28px]">

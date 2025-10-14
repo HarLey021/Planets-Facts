@@ -1,9 +1,7 @@
-import React, { useState } from "react";
-import Navigation from "../planets/Planets";
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Header: React.FC = () => {
-  const [menuOpen, setMenuOpen] = useState<boolean>(true);
-
   return (
     <>
       <div className="w-full h-[75px]">
@@ -11,20 +9,14 @@ const Header: React.FC = () => {
           <h1 className="text-[28px] text-white font-antonio tracking-[-1px]">
             THE PLANETS
           </h1>
-          <img
-            className={`${menuOpen ? "opacity-25" : "opacity-100"}`}
-            src="/icon-hamburger.svg"
-            onClick={() => {
-              setMenuOpen(!menuOpen);
-            }}
-          />
+          <Link to={"/"}>
+            <img src="/icon-hamburger.svg" />
+          </Link>
         </div>
         <div>
           <div className="w-full h-[1px] bg-white opacity-20 "></div>
         </div>
       </div>
-
-      {menuOpen && <Navigation />}
     </>
   );
 };
