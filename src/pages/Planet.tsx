@@ -103,7 +103,7 @@ const Planet: React.FC = () => {
                   alt="planet"
                 />
                 <img
-                  className="w-[70px] h-[70px] absolute top-[190px] left-auto"
+                  className="w-[70px] h-[85px] absolute top-[180px] left-auto"
                   src={planet?.images.geology}
                   alt="geology"
                 />
