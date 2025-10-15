@@ -1,4 +1,4 @@
-interface planetInterface {
+interface PlanetInterface {
   name: string;
   overview: {
     content: string;
@@ -23,7 +23,7 @@ interface planetInterface {
   };
 }
 
-interface colorInterface {
+interface ColorInterface {
   name: string;
   color: string;
 }

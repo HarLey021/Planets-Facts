@@ -6,4 +6,7 @@
 
   --font-antonio: "Antonio", sans serif;
   --font-spartan: "League Spartan", sans serif;
+
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1440px;
 }

@@ -9,11 +9,11 @@ const Planet: React.FC = () => {
   >("overview");
 
   const { name } = useParams<{ name: string }>();
-  const planet: planetInterface | undefined = data.find(
+  const planet: PlanetInterface | undefined = data.find(
     (planet) => planet.name.toLowerCase() === name?.toLowerCase()
   );
 
-  const color: colorInterface | undefined = navBarData.find(
+  const color: ColorInterface | undefined = navBarData.find(
     (planet) => planet.name.toLowerCase() === name?.toLowerCase()
   );
 
