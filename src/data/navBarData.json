@@ -1,10 +1,10 @@
 [
-  { "name": "MERCURY", "color": "#DEF4FC" },
-  { "name": "VENUS", "color": "#F7CC7F" },
-  { "name": "EARTH", "color": "#545BFE" },
-  { "name": "MARS", "color": "#FF6A45" },
-  { "name": "JUPITER", "color": "#ECAD7A" },
-  { "name": "SATURN", "color": "#FCCB6B" },
-  { "name": "URANUS", "color": "#65F0D5" },
-  { "name": "NEPTUNE", "color": "#497EFA" }
+  { "name": "MERCURY", "color": "#DEF4FC", "mdColor": "#419EBB" },
+  { "name": "VENUS", "color": "#F7CC7F", "mdColor": "#EDA249" },
+  { "name": "EARTH", "color": "#545BFE", "mdColor": "#6D2ED5" },
+  { "name": "MARS", "color": "#FF6A45", "mdColor": "#D14C32" },
+  { "name": "JUPITER", "color": "#ECAD7A", "mdColor": "#D83A34" },
+  { "name": "SATURN", "color": "#FCCB6B", "mdColor": "#CD5120" },
+  { "name": "URANUS", "color": "#65F0D5", "mdColor": "#1EC1A2" },
+  { "name": "NEPTUNE", "color": "#497EFA", "mdColor": "#2D68F0" }
 ]

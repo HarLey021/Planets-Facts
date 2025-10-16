@@ -23,7 +23,8 @@ interface PlanetInterface {
   };
 }
 
-interface ColorInterface {
+interface NavBarInterface {
   name: string;
   color: string;
+  mdColor: string;
 }
