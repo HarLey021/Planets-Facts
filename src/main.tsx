@@ -3,7 +3,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import Home from "./pages/Home.tsx";
 import Planet from "./pages/Planet.tsx";
-import Planets from "./components/planets/Planets.tsx";
 
 const router = createBrowserRouter([
   {
@@ -11,8 +10,8 @@ const router = createBrowserRouter([
     element: <Home />,
     children: [
       {
-        path: "/",
-        element: <Planets />,
+        path: "",
+        element: <Planet />,
       },
       {
         path: "/planets/:name",

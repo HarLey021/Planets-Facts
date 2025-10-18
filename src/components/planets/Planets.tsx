@@ -1,13 +1,21 @@
 import navBarData from "../../data/navBarData.json";
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const Planets: React.FC = () => {
+const Planets: React.FC<ToggleInterface> = ({ showMenu, setShowMenu }) => {
   return (
-    <div className="w-full min-h-screen p-[24px] mt-[20px]">
+    <div
+      className={`w-full min-h-screen p-[24px] mt-[20px] ${
+        showMenu ? "block" : "hidden"
+      }`}
+    >
       {navBarData.map((planet) => {
         return (
           <Link key={planet.name} to={`/planets/${planet.name}`}>
-            <div key={planet.name} className=" mb-[20px]">
+            <div
+              onClick={() => setShowMenu(false)}
+              key={planet.name}
+              className=" mb-[20px]"
+            >
               <div className="flex items-center mb-[20px]">
                 <div
                   className={`w-[20px] h-[20px] rounded-[20px] mr-[25px]`}
@@ -26,7 +34,6 @@ const Planets: React.FC = () => {
           </Link>
         );
       })}
-      <Outlet />
     </div>
   );
 };

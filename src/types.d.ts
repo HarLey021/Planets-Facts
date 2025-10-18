@@ -28,3 +28,8 @@ interface NavBarInterface {
   color: string;
   mdColor: string;
 }
+
+type ToggleInterface = {
+  showMenu: boolean;
+  setShowMenu: React.Dispatch<React.SetStateAction<boolean>>;
+};
